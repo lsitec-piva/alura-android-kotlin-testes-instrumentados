@@ -7,12 +7,22 @@ import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.assertion.ViewAssertions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.platform.app.InstrumentationRegistry
+import br.com.alura.orgs.database.AppDatabase
 import br.com.alura.orgs.ui.activity.FormularioProdutoActivity
 import br.com.alura.orgs.ui.activity.ListaProdutosActivity
 import br.com.alura.orgs.ui.activity.LoginActivity
+import org.junit.Before
 import org.junit.Test
 
 class ProdutoActivityTest {
+
+    @Before
+    fun preparaAmbiente() {
+        AppDatabase.instancia(
+            InstrumentationRegistry.getInstrumentation().targetContext
+        ).clearAllTables()
+    }
 
     @Test
     fun deveMostrarONomeDoAplicativo() {
