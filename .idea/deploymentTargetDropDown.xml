@@ -5,16 +5,16 @@
       <entry key="ProdutoActivityTest">
         <State />
       </entry>
-      <entry key="UsuarioActivityTest">
+      <entry key="ProdutosTelasTeste">
         <State />
       </entry>
       <entry key="app">
         <State />
       </entry>
-      <entry key="deveSerCapazDePreencherOsCamposDeCadastroECadastrar()">
+      <entry key="deveMostrarCamposNecessariosParaCriarUmProduto()">
         <State />
       </entry>
-      <entry key="deveSerCapazDePreencherOsCamposDeLoginEEntrar()">
+      <entry key="deveSerCapazDeEditarUmProduto()">
         <State />
       </entry>
       <entry key="deveSerCapazDePreencherOsCamposESalvar()">

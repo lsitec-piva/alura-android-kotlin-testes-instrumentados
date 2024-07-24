@@ -14,13 +14,20 @@ import br.com.alura.orgs.ui.activity.LoginActivity
 import org.junit.Before
 import org.junit.Test
 
-class UsuarioActivityTest {
+class UsuariosTelasTest {
 
     @Before
     fun preparaAmbiente() {
         AppDatabase.instancia(
             InstrumentationRegistry.getInstrumentation().targetContext
         ).clearAllTables()
+    }
+
+    @Test
+    fun deveMostrarNomeDoAplicativo() {
+        launch(LoginActivity::class.java)
+
+        onView(withText("Orgs")).check(ViewAssertions.matches(isDisplayed()))
     }
 
     @Test
