@@ -2,9 +2,11 @@ package br.com.alura.orgs
 
 import androidx.test.core.app.ActivityScenario.*
 import androidx.test.espresso.Espresso.*
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.assertion.ViewAssertions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
-import br.com.alura.orgs.ui.activity.FormularioCadastroUsuarioActivity
 import br.com.alura.orgs.ui.activity.FormularioProdutoActivity
 import br.com.alura.orgs.ui.activity.ListaProdutosActivity
 import br.com.alura.orgs.ui.activity.LoginActivity
@@ -38,22 +40,31 @@ class ProdutoActivityTest {
     }
 
     @Test
-    fun deveTerTodosOsCamposNecessariosFazerLogin() {
-        launch(LoginActivity::class.java)
+    fun deveSerCapazDePreencherOsCamposESalvar() {
+        launch(FormularioProdutoActivity::class.java)
 
-        onView(withId(R.id.activity_login_usuario)).check(matches(isDisplayed()))
-        onView(withId(R.id.activity_login_senha)).check(matches(isDisplayed()))
-        onView(withId(R.id.activity_login_botao_entrar)).check(matches(isDisplayed()))
-    }
+        onView(withId(R.id.activity_formulario_produto_nome))
+            .perform(
+                typeText("Banana"),
+                closeSoftKeyboard()
+            )
+        onView(withId(R.id.activity_formulario_produto_descricao))
+            .perform(
+                typeText("banana prata"),
+                closeSoftKeyboard()
+            )
+        onView(withId(R.id.activity_formulario_produto_valor))
+            .perform(
+                typeText("6.99"),
+                closeSoftKeyboard()
+            )
 
-    @Test
-    fun deveTerTodosOsCamposNecessariosFazerCadastro() {
-        launch(FormularioCadastroUsuarioActivity::class.java)
+        onView(withId(R.id.activity_formulario_produto_botao_salvar))
+            .perform(click())
 
-        onView(withId(R.id.activity_formulario_cadastro_usuario)).check(matches(isDisplayed()))
-        onView(withId(R.id.activity_formulario_cadastro_email)).check(matches(isDisplayed()))
-        onView(withId(R.id.activity_formulario_cadastro_senha)).check(matches(isDisplayed()))
-        onView(withId(R.id.activity_formulario_cadastro_botao_cadastrar)).check(matches(isDisplayed()))
+        launch(ListaProdutosActivity::class.java)
+
+        onView(withText("Banana")).check(matches(isDisplayed()))
     }
 
 }

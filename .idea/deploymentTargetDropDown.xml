@@ -11,6 +11,15 @@
       <entry key="deveMostrarCamposNecessariosParaCriarUmProduto()">
         <State />
       </entry>
+      <entry key="deveSerCapazDePreencherOsCamposDeCadastroECadastrar()">
+        <State />
+      </entry>
+      <entry key="deveSerCapazDePreencherOsCamposDeLoginEEntrar()">
+        <State />
+      </entry>
+      <entry key="deveSerCapazDePreencherOsCamposESalvar()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
